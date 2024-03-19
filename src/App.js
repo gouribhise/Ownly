@@ -35,23 +35,7 @@ function App() {
       </BrowserRouter>
       </AuthWrapper>
     </div>
-    // <AuthWrapper>
-    // <Router>
-    //        <Routes>
-    //       <Route path="/" element={
-    //       <PrivateRoute>
-    //   <Profile/>
-    //       </PrivateRoute>
-    //    }/>
-    //    <Route path="home" element={<Home/>}/>
-    //       <Route path="buy" element={<Buy/>}/>
-   
-    //       <Route path="*" element={<NoPage/>}/>
-   
-    //        </Routes>
-          
-    //      </Router>
-    //    </AuthWrapper>
+    
   );
 }
 
