@@ -1,6 +1,10 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
+import { useAuth0 } from '@auth0/auth0-react';
+import { FaTwitter,FaInstagram,FaFacebook } from "react-icons/fa";
 const Layout = () => {
+  const {loginWithRedirect,isAuthenticated,user,logout}=useAuth0()
+  const isUser=isAuthenticated && user
   return (
     <>
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -35,12 +39,14 @@ const Layout = () => {
               </li>
             </ul>
             <form className="d-flex mx-2">
-              <button className="btn btn-primary mx-2" type="button">
+              {/* <button className="btn btn-primary mx-2" type="button">
                 Login
               </button>
               <button className="btn btn-primary" type="button">
                 Sign Up
-              </button>
+              </button> */}
+               {isUser?    <button className="btn btn-primary mx-auto" type="button" onClick={()=>{logout({returnTo:window.location.orogin})}}>logout</button>
+:<button className="btn btn-primary mx-auto" type="button" onClick={loginWithRedirect}>login</button>}
             </form>
           </div>
         </div>
@@ -49,7 +55,7 @@ const Layout = () => {
       <Outlet />
       <footer className="footer">
         <div className="row">
-          <div class="col-md-5 offset-md-1 mb-3">
+          <div class="col-md-4 offset-md-2 mx-auto ">
             <form>
               <h5>Subscribe to our newsletter</h5>
               <p>Monthly digest of what's new and exciting from us.</p>
@@ -70,14 +76,18 @@ const Layout = () => {
               </div>
             </form>
           </div>
-          <div className="col-6">
-            Follow us <i class="fa-brands fa-twitter"></i>
-            <i class="fa-brands fa-instagram"></i>
-            <i class="fa-brands fa-facebook"></i>
+          <div className="col-4 footer-right mx-auto">
+            <p>Follow us </p>
+            <div id="social">
+           <p> <FaTwitter size={46}/></p>
+            <p><FaInstagram size={46}/></p>
+        <p>  <FaFacebook size={46}/></p>
+            </div>
+          
           </div>
         </div>
         <div className="row">
-          <p>© 2024 Ownly, Inc. All rights reserved.</p>
+          <p className="col-4 mx-auto pt-4">© 2024 Ownly, Inc. All rights reserved.</p>
         </div>
       </footer>
     </>
