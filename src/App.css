@@ -1,12 +1,15 @@
 .home{
   width:100vw;
-  height:100vh;
+ 
 
    
 }
 main{
   width:90vw;
   margin:0 auto;
+}
+.hero{
+  border-bottom:10px solid lightgray;
 }
 .footer {
   width: 100vw;
