@@ -2,10 +2,18 @@ import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import { useAuth0 } from '@auth0/auth0-react';
 import { FaTwitter,FaInstagram,FaFacebook } from "react-icons/fa";
+import { useUserContext } from '../context/user_context'
+
 const Layout = () => {
+  
+
   const {loginWithRedirect,isAuthenticated,user,logout}=useAuth0()
+  const { myUser } = useUserContext()
+
   const isUser=isAuthenticated && user
+  console.log('what is user:',user.nickname)
   return (
+    
     <>
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
         <div className="container-fluid">

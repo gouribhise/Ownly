@@ -4,6 +4,8 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { UserProvider } from './context/user_context';
+
 import { Auth0Provider } from '@auth0/auth0-react';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -16,7 +18,10 @@ root.render(
     cacheLocation='localstorage'
 
     >
-    <App />
+      <UserProvider>
+      <App />
+      </UserProvider>
+    
     </Auth0Provider>
 
   </React.StrictMode>
